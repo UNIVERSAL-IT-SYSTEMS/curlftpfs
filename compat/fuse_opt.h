@@ -4,7 +4,7 @@
 
     This program can be distributed under the terms of the GNU GPL.
     See the file COPYING.
-*/
+ */
 
 #ifndef _FUSE_OPT_H_
 #define _FUSE_OPT_H_
@@ -71,20 +71,20 @@ extern "C" {
  * with scanf().
  */
 struct fuse_opt {
-    /** Matching template and optional parameter formatting */
-    const char *template_opt;
+	/** Matching template and optional parameter formatting */
+	const char *template_opt;
 
-    /**
-     * Offset of variable within 'data' parameter of fuse_opt_parse()
-     * or -1
-     */
-    unsigned long offset;
+	/**
+	 * Offset of variable within 'data' parameter of fuse_opt_parse()
+	 * or -1
+	 */
+	unsigned long offset;
 
-    /**
-     * Value to set the variable to, or to be passed as 'key' to the
-     * processing function.  Ignored if template a format
-     */
-    int value;
+	/**
+	 * Value to set the variable to, or to be passed as 'key' to the
+	 * processing function.  Ignored if template a format
+	 */
+	int value;
 };
 
 /**
@@ -103,14 +103,14 @@ struct fuse_opt {
  * Argument list
  */
 struct fuse_args {
-    /** Argument count */
-    int argc;
+	/** Argument count */
+	int argc;
 
-    /** Argument vector.  NULL terminated */
-    char **argv;
+	/** Argument vector.  NULL terminated */
+	char **argv;
 
-    /** Is 'argv' allocated? */
-    int allocated;
+	/** Is 'argv' allocated? */
+	int allocated;
 };
 
 /**
@@ -158,7 +158,7 @@ struct fuse_args {
  * @return -1 on error, 0 if arg is to be discarded, 1 if arg should be kept
  */
 typedef int (*fuse_opt_proc_t)(void *data, const char *arg, int key,
-                               struct fuse_args *outargs);
+			       struct fuse_args *outargs);
 
 /**
  * Option parsing function
@@ -181,7 +181,7 @@ typedef int (*fuse_opt_proc_t)(void *data, const char *arg, int key,
  * @return -1 on error, 0 on success
  */
 int fuse_opt_parse(struct fuse_args *args, void *data,
-                   const struct fuse_opt opts[], fuse_opt_proc_t proc);
+		   const struct fuse_opt opts[], fuse_opt_proc_t proc);
 
 /**
  * Add an option to a comma separated option list
